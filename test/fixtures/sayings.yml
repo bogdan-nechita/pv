@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+apa:
+  part1: Apa trece
+  separator: ,
+  part2: pietrele rămân.
+
+lupul:
+  part1: Lupul își schimbă părul
+  separator: dar
+  part2: năravul ba.
