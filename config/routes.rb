@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'sayings/uber_saying'
+  get 'sayings/dada_saying'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

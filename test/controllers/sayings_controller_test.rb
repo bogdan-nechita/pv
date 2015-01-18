@@ -1,8 +1,8 @@
 require 'test_helper'
 
 class SayingsControllerTest < ActionController::TestCase
-  test "should get uber_saying" do
-    get :uber_saying
+  test "should get dada_saying" do
+    get :dada_saying
     assert_response :success
   end
 
