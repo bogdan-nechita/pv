@@ -1,27 +1,17 @@
 source 'https://rubygems.org'
 
+# Specify the Ruby version
 ruby '2.1.5'
+# Specify the Rails version
 gem 'rails', '4.1.8'
+# The api is built using the rails-api gem
 gem 'rails-api'
+# Use Postgres as the database
+gem 'pg'
+# Use unicorn as the app server
+gem 'unicorn'
 
 group :development do
   gem 'spring'
   gem 'byebug'
 end
-
-gem 'pg'
-
-# To use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.1.2'
-
-# To use Jbuilder templates for JSON
-# gem 'jbuilder'
-
-# Use unicorn as the app server
-# gem 'unicorn'
-
-# Deploy with Capistrano
-# gem 'capistrano', :group => :development
-
-# To use debugger
-# gem 'ruby-debug19', :require => 'ruby-debug'
