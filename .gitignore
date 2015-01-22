@@ -16,4 +16,4 @@
 /tmp
 
 # Ignore the Proziceri.csv file
-/db/Proziceri.csv
+#/db/Proziceri.csv
