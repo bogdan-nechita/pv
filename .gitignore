@@ -19,4 +19,4 @@
 #/db/Proziceri.csv
 
 #Ignore the database.yml file
-/db/database.yml
+/config/database.yml
