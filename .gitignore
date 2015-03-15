@@ -18,5 +18,6 @@
 # Ignore the Proziceri.csv file
 #/db/Proziceri.csv
 
-#Ignore the database.yml file
+#Ignore the database.yml and secrets.yml files
 /config/database.yml
+/config/secrets.yml

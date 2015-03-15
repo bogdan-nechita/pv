@@ -20,13 +20,12 @@ set :rails_env, 'production'
 
 # Manually create these paths in shared/ (eg: shared/config/database.yml) in your server.
 # They will be linked in the 'deploy:link_shared_paths' step.
-set :shared_paths, ['config/database.yml', 'log']
+set :shared_paths, ['config/database.yml', 'config/secrets.yml', 'log']
 
 # Optional settings:
 set :user, 'deployer'    # Username in the server to SSH to.
 set :port, '22'     # SSH port number.
-set :ssh_options, '-A'
-#   set :forward_agent, true     # SSH forward_agent.
+set :forward_agent, true     # SSH forward_agent.
 
 # This task is the environment that is loaded for most commands, such as
 # `mina deploy` or `mina rake`.
@@ -48,6 +47,9 @@ task :setup => :environment do
 
   queue! %[touch "#{deploy_to}/#{shared_path}/config/database.yml"]
   queue  %[echo "-----> Be sure to edit '#{deploy_to}/#{shared_path}/config/database.yml'."]
+
+  queue! %[touch "#{deploy_to}/shared/config/secrets.yml"]
+  queue %[echo "-----> Be sure to edit 'shared/config/secrets.yml'."]
 end
 
 desc "Deploys the current version to the server."
