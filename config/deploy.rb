@@ -11,16 +11,14 @@ require 'mina/rbenv'
 
 set :domain, '188.166.21.170'
 set :deploy_to, '/home/deployer/apps/prozicerisiverbatori.ro'
+set :app_path, "#{deploy_to}/#{current_path}"
 set :repository, 'git@github.com:bogdan-nechita/pv.git'
 set :branch, 'master'
 set :rails_env, 'production'
 
-# For system-wide RVM install.
-#   set :rvm_path, '/usr/local/rvm/bin/rvm'
-
 # Manually create these paths in shared/ (eg: shared/config/database.yml) in your server.
 # They will be linked in the 'deploy:link_shared_paths' step.
-set :shared_paths, ['config/database.yml', 'config/secrets.yml', 'log']
+set :shared_paths, ['config/database.yml', 'log']
 
 # Optional settings:
 set :user, 'deployer'    # Username in the server to SSH to.
@@ -47,9 +45,6 @@ task :setup => :environment do
 
   queue! %[touch "#{deploy_to}/#{shared_path}/config/database.yml"]
   queue  %[echo "-----> Be sure to edit '#{deploy_to}/#{shared_path}/config/database.yml'."]
-
-  queue! %[touch "#{deploy_to}/shared/config/secrets.yml"]
-  queue %[echo "-----> Be sure to edit 'shared/config/secrets.yml'."]
 end
 
 desc "Deploys the current version to the server."
