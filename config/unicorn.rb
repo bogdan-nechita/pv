@@ -1,4 +1,4 @@
-shared_dir = '/home/deployer/apps/partyfinderbackend/staging/shared'
+shared_dir = '/home/deployer/apps/prozicerisiverbatori.ro/shared'
 
 worker_processes 4
 listen "#{shared_dir}/pids/unicorn.sock", :backlog => 64
