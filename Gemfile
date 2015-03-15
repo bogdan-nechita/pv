@@ -1,9 +1,9 @@
 source 'https://rubygems.org'
 
 # Specify the Ruby version
-ruby '2.1.5'
+ruby '2.2.0'
 # Specify the Rails version
-gem 'rails', '4.1.8'
+gem 'rails', '4.2.0'
 # The api is built using the rails-api gem
 gem 'rails-api'
 # Use Postgres as the database
