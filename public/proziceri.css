@@ -1,0 +1,88 @@
+html {
+  position: relative;
+  min-height: 900px;
+}
+
+body{
+  margin: 0 0 40px;
+  padding: 0;
+  border: 0;
+  font-family: 'Radley', serif;
+}
+
+footer{
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 50px;
+  width: 100%;
+  font-size: 15px;
+  text-align: center;
+}
+
+#logoContainer{
+  text-align: center;
+  margin: auto;
+  position: absolute;
+  top: 20px;
+  left: 0;
+  right: 0;
+}
+
+#header{
+  font-size: 70px;
+}
+#subHeader{
+  font-size: 20px;
+}
+
+#originalSayingsContainer{
+  height: 100px;
+  text-align: center;
+  margin: auto;
+  position: absolute;
+  left: 0;
+  right: 0;
+}
+#dadaSayingContainer{
+	height: 50px; 
+  text-align: center;
+  margin: auto;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+  cursor: pointer;  
+}
+#dadaSaying{
+  padding-bottom: 10px;
+  border-bottom-color: black;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  font-size: 50px;
+  color: red;
+}
+#nextSaying{
+  margin-top: 25px;
+}
+
+#aboutContainer{
+  width: 800px;
+  height: 500px;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+#about {
+  cursor: pointer;
+  right: 0px;
+  color: white;
+  background-color: gray;
+  padding: 10px;
+  position: fixed;
+}
+
+#contactIcons > a{
+  padding-right: 5px;
+}
