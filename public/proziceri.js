@@ -1,3 +1,9 @@
+// All the sayings generated in the session.
+var sayings_in_session = []
+
+// The saying currently on display.
+var currentSaying;
+
 $( document ).ready(function() {
 	getDadaSaying();	
 
@@ -13,9 +19,41 @@ $( document ).ready(function() {
 			$("#originalSayingsContainer").hide();
 		});
 	
-	$("#nextSaying").click(function(){
+	$("#newSaying").click(function(){
 		getDadaSaying();
 	});
+
+	$("#previousSaying").click(function(){
+		if (sayings_in_session.length > 1) {
+			var indexes = $.map(sayings_in_session, function (obj, index) {
+				if(obj.dada == currentSaying.dada) {
+					return index;
+				}
+			})
+			var indexOfCurrentSession = indexes[0]
+			
+			if (indexOfCurrentSession > 0) {
+				var previousSaying = sayings_in_session[indexOfCurrentSession-1];
+				displaySaying(previousSaying.dada, previousSaying.first, previousSaying.second);
+			}
+		}
+	});
+
+	$("#nextSaying").click(function(){
+		if (sayings_in_session.length > 1) {
+			var indexes = $.map(sayings_in_session, function (obj, index) {
+				if(obj.dada == currentSaying.dada) {
+					return index;
+				}
+			})
+			var indexOfCurrentSession = indexes[0]
+
+			if (indexOfCurrentSession < sayings_in_session.length) {
+				var nextSaying = sayings_in_session[indexOfCurrentSession+1];
+				displaySaying(nextSaying.dada, nextSaying.first, nextSaying.second);
+			}
+		}
+	});	
 
 	$("#about").click(function(){
 		if (this.innerText == "Despre") {
@@ -31,17 +69,30 @@ $( document ).ready(function() {
 	});
 });
 
+// Add the dada saying and the original ones.
+function addSayingToSession(dada_saying, first_saying, second_saying) {
+	sayings_in_session.push({'dada': dada_saying, 'first': first_saying, 'second': second_saying});
+}
+// Display the dada sayings with its corresponding original sayings.
+function displaySaying(dada_saying, first_saying, second_saying) {
+	currentSaying = {'dada': dada_saying, 'first': first_saying, 'second': second_saying};
+
+	$("#dadaSaying").html(dada_saying);
+	$("#oSaying1").html(first_saying);
+	$("#oSaying2").html(second_saying);
+}
+
 function getDadaSaying(){
 	$.ajax({
 		url: "http://188.166.21.170/sayings/dada_saying",
 		jsonp: "callback",
 		dataType: "jsonp",
 		success: function( response ) {
-			$("#dadaSaying").html(response.dada_saying);	
 			var first_saying = response.first_saying.part1 + (response.first_saying.separator == ',' ? '' : ' ') + response.first_saying.separator + ' ' + response.first_saying.part2;
 			var second_saying = response.second_saying.part1 + (response.second_saying.separator == ',' ? '' : ' ') + response.second_saying.separator + ' ' + response.second_saying.part2;		
-			$("#oSaying1").html(first_saying);
-			$("#oSaying2").html(second_saying);
+			
+			addSayingToSession(response.dada_saying, first_saying, second_saying);
+			displaySaying(response.dada_saying, first_saying, second_saying);
 		}
 	});
 }
