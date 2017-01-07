@@ -79,6 +79,19 @@ $( document ).ready(function() {
 		}, function(response){});
 	});
 
+	$("#about").click(function(){
+		if (this.innerText == "despre") {
+			this.innerText = "înapoi";
+			$("#sayingsContainer").hide();
+			$("#aboutContainer").show();
+		}
+		else{
+			this.innerText = "despre";
+			$("#sayingsContainer").show();
+			$("#aboutContainer").hide();
+		}
+	});
+
 });
 
 // Add the dada saying and the original ones.
