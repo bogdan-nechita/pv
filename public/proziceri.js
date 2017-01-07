@@ -53,20 +53,33 @@ $( document ).ready(function() {
 				displaySaying(nextSaying.dada, nextSaying.first, nextSaying.second);
 			}
 		}
+	});
+
+	$("#nextSaying").click(function(){
+		if (sayings_in_session.length > 1) {
+			var indexes = $.map(sayings_in_session, function (obj, index) {
+				if(obj.dada == currentSaying.dada) {
+					return index;
+				}
+			})
+			var indexOfCurrentSession = indexes[0]
+
+			if (indexOfCurrentSession < sayings_in_session.length) {
+				var nextSaying = sayings_in_session[indexOfCurrentSession+1];
+				displaySaying(nextSaying.dada, nextSaying.first, nextSaying.second);
+			}
+		}
 	});	
 
-	$("#about").click(function(){
-		if (this.innerText == "Despre") {
-			this.innerText = "Înapoi";
-			$("#sayingsContainer").hide();
-			$("#aboutContainer").show();
-		}
-		else{
-			this.innerText = "Despre";
-			$("#sayingsContainer").show();
-			$("#aboutContainer").hide();
-		}
+	$("#shareOnFacebook").click(function(){
+		FB.ui({
+		  method: 'share',
+		  href: 'http://prozicerisiverbatori.ro',
+		  hashtag: 'prozicerișiverbători',
+		  quote: currentSaying.dada_saying
+		}, function(response){});
 	});
+
 });
 
 // Add the dada saying and the original ones.
