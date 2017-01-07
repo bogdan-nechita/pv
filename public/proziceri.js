@@ -75,8 +75,7 @@ $( document ).ready(function() {
 		FB.ui({
 		  method: 'share',
 		  href: 'http://prozicerisiverbatori.ro',
-		  hashtag: 'prozicerișiverbători',
-		  quote: currentSaying.dada_saying
+		  quote: '" ' + currentSaying.dada + ' "',
 		}, function(response){});
 	});
 
